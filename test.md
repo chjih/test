@@ -9,7 +9,7 @@
 4. 강조 (Emphasis)
 5. 인용구 (Blockquotes)
 6. 목록 (Lists)
-7. 암호 (Code)
+7. 암호 (Code)git
 8. 백틱 탈출 (Escaping Backticks)
 9. 코드 블록(Code Blocks)
 10. 수평 규칙 (Horizontal Rules)
