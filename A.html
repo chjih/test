@@ -29,6 +29,55 @@
         }
     </style>
     <script>
+	$.ajax({
+            "type" : "get",
+            "url" : "ex1.json",
+	    "dataType": "json",
+            "contentType": "application/json; charset=utf-8",
+            "success" : function(data){
+            	var str="";
+                alert("데이터를 가져왔습니다.");
+          		for(i in data){
+          			if(i=='ㄱ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄱ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄴ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄴ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄷ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄷ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄹ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄹ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          		}
+          		document.getElementById("calender-list").innerHTML=str;
+          		console.log(str);
+            },
+            "error" : function(info, xhr){
+                alert("데이터를 불러오지 못했습니다.");
+            }
+        });
         $("content").trigger("create");
     </script>
     <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
