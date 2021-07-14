@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>연락처</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css"/>
+	<style>
+        .ui-li-icon{
+            width:55px;
+        }
+        h3{
+            position:relative;
+            top:-5px;
+            padding-left:30px;
+            font-weight: 100px;
+        }
+        p{
+            position:relative;
+            top:-9px;
+            text-align:right;
+        }
+        .phonelist{
+            height:40px;
+        }
+        .pdi{
+        	background-color: skyblue;
+        }
+    </style>
+	<script>
+        $.ajax({
+            "type" : "get",
+            "url" : "이름.jsp",
+          	"dataType": "jsp",
+            "contentType": "application/json; charset=utf-8",
+            "success" : function(data){
+            	var str="";
+                alert("데이터를 가져왔습니다.");
+          		for(i in data){
+          			if(i=='ㄱ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄱ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄴ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄴ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄷ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄷ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          			if(i=='ㄹ'){
+          				str+='<li data-role="list-divider" data-divider-theme="a" class="pdi">ㄹ</li>';
+          				for(k in data[i]){
+              				str+='<li class="phonelist" id="plist"><img src="111-user.png" class="ui-li-icon">'
+              				str+='<h3>'+data[i][k].name+'</h3>'+'<p>'+data[i][k].number+'</p>';
+              				str+='</li>';
+              			}
+          			}
+          		}
+          		document.getElementById("calender-list").innerHTML=str;
+          		console.log(str);
+            },
+            "error" : function(info, xhr){
+                alert("데이터를 불러오지 못했습니다.");
+            }
+        });
+        $("content").trigger("create");
+    </script>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+    <div data-role="header">
+        <h1>개인 연락처</h1>
+    </div>
+
+    <div data-role="content" id="phonenumberlist">
+        <ul data-role="listview" id="calender-list" data-filter="true" data-filter-placeholder="Search...">
+        </ul>
+    </div>
+
+    <div data-role="footer">
+
+    </div>
+</div>
+</body>
+
+</html>
